@@ -13,23 +13,21 @@ import java.io.IOException;
 public class WelcomeFormController {
 
     @FXML
-    private AnchorPane rootnode;
-
-    @FXML
     private Button btnAdmin;
 
     @FXML
     private Button btnCoordinator;
 
     @FXML
-    void AdmintbtnOnAction(ActionEvent event) throws IOException {
+    private AnchorPane rootnode;
+
+    @FXML
+    void AdmintbtnOnAction(ActionEvent event) throws IOException, IOException {
         Parent root = FXMLLoader.load(this.getClass().getResource("/View/AdminLogin_form.fxml"));
         Stage stage =(Stage) this.rootnode.getScene().getWindow();
         stage.setScene(new javafx.scene.Scene(root));
         stage.setTitle("Admin Login");
         stage.centerOnScreen();
-
-
     }
 
     @FXML
@@ -37,9 +35,8 @@ public class WelcomeFormController {
         Parent root = FXMLLoader.load(this.getClass().getResource("/View/CoordinatorLogin_form.fxml"));
         Stage stage =(Stage) this.rootnode.getScene().getWindow();
         stage.setScene(new javafx.scene.Scene(root));
-        stage.setTitle("Admin Login");
+        stage.setTitle("Cordinator Login");
         stage.centerOnScreen();
-
     }
 
 }

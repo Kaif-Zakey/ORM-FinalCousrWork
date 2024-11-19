@@ -10,10 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class DashboardController {
-
-    @FXML
-    private Button btnSetting;
+public class AdminDashboardController {
 
     @FXML
     private Button btnHome;
@@ -25,19 +22,19 @@ public class DashboardController {
     private Button btnProgram;
 
     @FXML
-    private Button btnStudent;
+    private Button btnSetting;
 
     @FXML
-    private AnchorPane root;
+    private Button btnStudent;
 
     @FXML
     private AnchorPane rootnode;
 
     @FXML
     void btnHomeOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(this.getClass().getResource("/view/Dashboard_form.fxml"));
+        AnchorPane anchorPane = FXMLLoader.load(this.getClass().getResource("/view/adminDashboard_form.fxml"));
         Scene scene = new Scene(anchorPane);
-        Stage stage = (Stage) this.root.getScene().getWindow();
+        Stage stage = (Stage) this.rootnode.getScene().getWindow();
         stage.setScene(scene);
         stage.setTitle("Login Form");
     }
@@ -46,32 +43,30 @@ public class DashboardController {
     void btnLogOutOnAction(ActionEvent event) throws IOException {
         AnchorPane anchorPane = FXMLLoader.load(this.getClass().getResource("/view/Welcome.fxml"));
         Scene scene = new Scene(anchorPane);
-        Stage stage = (Stage) this.root.getScene().getWindow();
+        Stage stage = (Stage) this.rootnode.getScene().getWindow();
         stage.setScene(scene);
         stage.setTitle("Login Form");
     }
 
     @FXML
     void btnProgrameOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/Program_form.fxml"));
-        rootnode.getChildren().clear();
-        rootnode.getChildren().add(anchorPane);
-    }
-
-    @FXML
-    void btnStudentOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/Student_form.fxml"));
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/adminProgram_form.fxml"));
         rootnode.getChildren().clear();
         rootnode.getChildren().add(anchorPane);
     }
 
     @FXML
     void btnSettingOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/CoordinatorSetting_form.fxml"));
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/Setting_form.fxml"));
         rootnode.getChildren().clear();
         rootnode.getChildren().add(anchorPane);
     }
 
-
+    @FXML
+    void btnStudentOnAction(ActionEvent event) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/AdminStudent_form.fxml"));
+        rootnode.getChildren().clear();
+        rootnode.getChildren().add(anchorPane);
+    }
 
 }
