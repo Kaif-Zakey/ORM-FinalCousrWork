@@ -106,13 +106,10 @@ public class AdminCoordinatorDAOImpl implements AdminCoordinatorDAO {
 
 
     @Override
-    public void checkCredential(String admissionCoUsername, String admissionCoPassword, AnchorPane root) throws SQLException, IOException {
-        Session session = null;
-        Transaction transaction = null;
+    public void checkCredential(String admissionCoUsername,String admissionCoPassword,AnchorPane root) throws SQLException, IOException {
 
-        try {
-            session = FactoryConfiguration.getInstance().getSession();
-            transaction = session.beginTransaction();
+            Session   session = FactoryConfiguration.getInstance().getSession();
+            Transaction transaction = session.beginTransaction();
 
             Query<Admission_Coordinator> query = session.createQuery("FROM org.example.orm_final_corsework1.entity.Admission_Coordinator ac WHERE ac.admissionCoUsername = :admissionCoUsername", Admission_Coordinator.class);
             query.setParameter("admissionCoUsername", admissionCoUsername);
@@ -124,8 +121,7 @@ public class AdminCoordinatorDAOImpl implements AdminCoordinatorDAO {
                 System.out.println("Database password hash: " + dbPassword);
                 System.out.println("Entered password: " + admissionCoPassword);
 
-//                BCrypt.checkpw(admissionCoPassword, dbPassword)
-                if (true) {
+                if (BCrypt.checkpw(admissionCoPassword, dbPassword)) {
                     System.out.println("Password matched!");
                     navigateToAdmissionCoordinatorHomepage(root);
                 } else {
@@ -138,12 +134,7 @@ public class AdminCoordinatorDAOImpl implements AdminCoordinatorDAO {
             }
 
             transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
-            e.printStackTrace();
-        } finally {
-            if (session != null) session.close();
-        }
+
 
     }
 
