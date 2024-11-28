@@ -103,7 +103,7 @@ public class adminStudentController {
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-clearFields();
+        clearFields();
     }
     private void loadAllStudents(){
         ObservableList<StudentsTM> obList = FXCollections.observableArrayList();

@@ -26,6 +26,5 @@
       </Label>
       <Text layoutX="450.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN ID:" wrappingWidth="64.00002441406241" />
       <Label fx:id="lblAdminId" layoutX="515.0" layoutY="31.0" prefHeight="18.0" prefWidth="64.0" />
-      <TextField fx:id="txtPasswordVisible" layoutX="150.0" layoutY="201.0" prefHeight="26.0" prefWidth="227.0" />
    </children>
 </AnchorPane>
